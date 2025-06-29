@@ -1,6 +1,6 @@
 "use client";
 import { MotionButton } from "@/ui/Button";
-import { motion } from "framer-motion";
+import { Easing, motion } from "framer-motion";
 import { Check } from "lucide-react";
 import Image from "next/image";
 import hero_img from "@/images/hero_img.png";
@@ -74,7 +74,7 @@ export default function HeroSection() {
           initial={{ clipPath: 'polygon(100% 0, 100% 0, 100% 100%, 100% 100%)' }}
           animate={{
             clipPath: 'polygon(15% 0, 100% 0%, 100% 100%, 0% 100%)',
-            transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
+            transition: { duration: 1,  ease: [0.25, 0.1, 0.25, 1] as Easing  }
           }}
         >
           <motion.div
@@ -82,7 +82,7 @@ export default function HeroSection() {
             initial={{ scale: 1.1 }}
             animate={{
               scale: 1,
-              transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] }
+              transition: { duration: 1.2,  ease: [0.25, 0.1, 0.25, 1] as Easing  }
             }}
           >
             <Image

@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Image from "next/image";
 import img from "@/images/section11_img.png";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { Easing, motion } from "framer-motion";
 
 const TABS = [
   {
@@ -42,7 +42,7 @@ const item = {
     opacity: 1,
     transition: {
       duration: 0.5,
-      ease: [0.25, 0.1, 0.25, 1],
+      ease: [0.25, 0.1, 0.25, 1] as Easing
     },
   },
 };

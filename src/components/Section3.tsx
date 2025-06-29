@@ -3,7 +3,7 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
 import section3_img from "@/images/section3.png";
-import { motion } from "framer-motion";
+import { Easing, motion } from "framer-motion";
 
 // Animation variants
 const containerVariants = {
@@ -24,7 +24,7 @@ const itemVariants = {
     opacity: 1,
     transition: {
       duration: 0.5,
-      ease: [0.25, 0.1, 0.25, 1],
+      ease: [0.25, 0.1, 0.25, 1] as Easing ,
     },
   },
 };

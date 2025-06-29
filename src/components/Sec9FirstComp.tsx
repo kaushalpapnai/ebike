@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import img from "@/images/grouped_bike.png";
-import { motion } from "framer-motion";
+import { Easing, motion } from "framer-motion";
 
 // Animation variants
 const container = {
@@ -22,7 +22,7 @@ const item = {
   visible: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { duration: 0.6,  ease: [0.25, 0.1, 0.25, 1] as Easing  },
   },
 };
 

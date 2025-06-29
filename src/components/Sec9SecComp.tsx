@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import img from "@/images/sec9_sec_com.png";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { Easing, motion } from "framer-motion";
 
 // Animation variants
 const container = {
@@ -20,7 +20,7 @@ const item = {
   visible: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { duration: 0.5,  ease: [0.25, 0.1, 0.25, 1] as Easing  },
   },
 };
 

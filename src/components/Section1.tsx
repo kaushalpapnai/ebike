@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Phone } from "lucide-react";
 import { MotionButton } from "@/ui/Button";
-import { motion } from "framer-motion";
+import { Easing, motion } from "framer-motion";
 import React from "react";
 import bike1 from "@/images/section1_bike.png";
 import card1_img from "@/images/section1_card1.png";
@@ -20,12 +20,12 @@ const container = {
 
 const item = {
   hidden: { y: 20, opacity: 0 },
-  visible: { y: 0, opacity: 1, transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] } },
+  visible: { y: 0, opacity: 1, transition: { duration: 0.5,  ease: [0.25, 0.1, 0.25, 1] as Easing  } },
 };
 
 const imageAnim = {
   hidden: { opacity: 0, x: 50 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1]} },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.8,  ease: [0.25, 0.1, 0.25, 1] as Easing } },
 };
 
 const Section1 = () => {

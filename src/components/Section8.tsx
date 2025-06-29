@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { Easing, motion } from "framer-motion";
 
 import holding_phone from "@/images/holding_phone.png";
 import google_playstore from "@/images/google_playstore.png";
@@ -25,7 +25,7 @@ const item = {
   visible: {
     y: 0,
     opacity: 1,
-    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as Easing  },
   },
 };
 

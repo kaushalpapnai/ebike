@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import toast, { Toaster } from "react-hot-toast";
-import { motion } from "framer-motion"; // Import Framer Motion
+import { Easing, motion } from "framer-motion"; // Import Framer Motion
 
 const formSchema = z.object({
   name: z.string().min(1, "Required"),
@@ -59,7 +59,7 @@ const Section7 = () => {
       opacity: 1,
       transition: {
         duration: 0.5,
-        ease: [0.25, 0.1, 0.25, 1]
+        ease: [0.25, 0.1, 0.25, 1] as Easing 
       }
     }
   };

@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react';
-import { motion } from "framer-motion";
+import { Easing, motion } from "framer-motion";
 import img from "@/images/section6_img.png";
 
 const fadeUp = {
@@ -11,7 +11,7 @@ const fadeUp = {
     y: 0,
     transition: {
       duration: 0.8,
-      ease: [0.25, 0.1, 0.25, 1]
+      ease: [0.25, 0.1, 0.25, 1] as Easing 
     }
   }
 };

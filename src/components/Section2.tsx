@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import React from "react";
-import { motion } from "framer-motion";
+import { Easing, motion } from "framer-motion";
 import right_img from "@/images/section2_image.png";
 import icon from "@/images/section2_icon.png";
 
@@ -30,21 +30,21 @@ const container = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.3
-    }
-  }
+      delayChildren: 0.3,
+    },
+  },
 };
 
-const item = {
+const fadeUp = {
   hidden: { y: 20, opacity: 0 },
   visible: {
     y: 0,
     opacity: 1,
     transition: {
       duration: 0.6,
-      ease: [0.16, 1, 0.3, 1]
-    }
-  }
+      ease: [0.25, 0.1, 0.25, 1] as Easing,
+    },
+  },
 };
 
 const imageAnim = {
@@ -54,24 +54,22 @@ const imageAnim = {
     x: 0,
     transition: {
       duration: 0.8,
-      ease: [0.16, 1, 0.3, 1]
-    }
-  }
+      ease: [0.25, 0.1, 0.25, 1] as Easing,
+    },
+  },
 };
 
 export default function Section2() {
   return (
     <section className="relative w-full bg-gray-50 overflow-hidden box-border">
-      {/* Multiple Parallel Diagonal Lines (Animated) */}
-      <motion.div 
+      {/* Background diagonal lines */}
+      <motion.div
         className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        {/* Your existing diagonal lines */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          {/* Multiple diagonal lines with different colors and opacities */}
           <div className="absolute -top-10 -left-20 w-full h-32 transform rotate-12 bg-gradient-to-r from-blue-600/20 to-transparent"></div>
           <div className="absolute -top-5 -left-32 w-full h-24 transform rotate-12 bg-gradient-to-r from-green-500/15 to-transparent"></div>
           <div className="absolute top-0 -left-40 w-full h-20 transform rotate-12 bg-gradient-to-r from-purple-600/10 to-transparent"></div>
@@ -80,60 +78,67 @@ export default function Section2() {
         </div>
       </motion.div>
 
-      {/* Main wrapper */}
       <div className="w-full flex justify-end h-screen pt-12">
-        {/* Content container with animations */}
-        <motion.div 
+        <motion.div
           className="relative z-10 w-[95%] flex flex-col lg:flex-row"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={container}
         >
-          {/* Left: Text - now takes full width on mobile */}
+          {/* Left text content */}
           <div className="flex-1 flex flex-col justify-center pb-10 pl-5 pt-2 space-y-4">
-            <motion.p variants={item} className="text-sm text-blue-600 font-semibold">
+            <motion.p
+              variants={fadeUp}
+              className="text-sm text-blue-600 font-semibold"
+            >
               Lorem ipsum dolor sit amet
             </motion.p>
 
-            <motion.h2 variants={item} className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight">
+            <motion.h2
+              variants={fadeUp}
+              className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-gray-900 leading-tight"
+            >
               LOREM IPSUM DOLOR SIT <br />
               AMET CONSECTETUR.
             </motion.h2>
 
-            <motion.p variants={item} className="text-gray-700 text-sm md:text-base">
+            <motion.p
+              variants={fadeUp}
+              className="text-gray-700 text-sm md:text-base"
+            >
               Lorem ipsum dolor sit amet consectetur. Mauris ullamcorper etiam
               leo eleifend condimentum in vitae faucibus.
             </motion.p>
 
             {/* Features List */}
             <motion.div variants={container} className="space-y-4">
-              {features.map((item, idx) => (
-                <motion.div 
-                  key={idx} 
-                  variants={item}
+              {features.map((feature, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={fadeUp}
                   className="flex gap-3"
                 >
                   <div className="h-5 w-10 mt-1 flex-shrink-0">
                     <Image
-                      src={item.icon}
+                      src={feature.icon}
                       alt={`icon-${idx}`}
                       className="rounded-sm"
                     />
                   </div>
                   <div>
                     <h3 className="text-sm font-bold text-gray-800 mb-1">
-                      {item.title}
+                      {feature.title}
                     </h3>
-                    <p className="text-sm text-gray-600">{item.desc}</p>
+                    <p className="text-sm text-gray-600">{feature.desc}</p>
                   </div>
                 </motion.div>
               ))}
             </motion.div>
           </div>
 
-          {/* Right: Image - Hidden on mobile, shown on lg screens */}
-          <motion.div 
+          {/* Right image */}
+          <motion.div
             variants={imageAnim}
             className="flex-1 hidden lg:flex justify-end items-center"
           >
@@ -148,7 +153,7 @@ export default function Section2() {
             </div>
           </motion.div>
 
-          {/* Gradient Line (Animated) */}
+          {/* Gradient Line */}
           <div className="absolute bottom-0 left-0 w-full">
             <div className="w-full h-5 bg-gradient-to-r from-[#043898] via-[#079902] to-[#170041] via-60%"></div>
           </div>
