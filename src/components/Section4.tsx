@@ -124,9 +124,9 @@ const Section4 = () => {
         }
       `}</style>
       
-      <section className="w-full min-h-screen py-16 px-4">
+      <section className="w-full py-16 px-4 ">
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">
+          <h1 className="text-2xl md:text-4xl font-bold text-gray-800 leading-tight">
             LOREM IPSUM DOLOR SIT AMET <br />
             CONSECTETUR, COMMODO LEO AMET.
           </h1>

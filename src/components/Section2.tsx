@@ -71,26 +71,26 @@ export default function Section2() {
       >
         {/* Your existing diagonal lines */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        {/* Multiple diagonal lines with different colors and opacities */}
-        <div className="absolute -top-10 -left-20 w-full h-32 transform rotate-12 bg-gradient-to-r from-blue-600/20 to-transparent"></div>
-        <div className="absolute -top-5 -left-32 w-full h-24 transform rotate-12 bg-gradient-to-r from-green-500/15 to-transparent"></div>
-        <div className="absolute top-0 -left-40 w-full h-20 transform rotate-12 bg-gradient-to-r from-purple-600/10 to-transparent"></div>
-        <div className="absolute top-5 -left-48 w-full h-16 transform rotate-12 bg-gradient-to-r from-blue-700/15 to-transparent"></div>
-        <div className="absolute top-10 -left-56 w-full h-12 transform rotate-12 bg-gradient-to-r from-teal-500/10 to-transparent"></div>
-      </div>
+          {/* Multiple diagonal lines with different colors and opacities */}
+          <div className="absolute -top-10 -left-20 w-full h-32 transform rotate-12 bg-gradient-to-r from-blue-600/20 to-transparent"></div>
+          <div className="absolute -top-5 -left-32 w-full h-24 transform rotate-12 bg-gradient-to-r from-green-500/15 to-transparent"></div>
+          <div className="absolute top-0 -left-40 w-full h-20 transform rotate-12 bg-gradient-to-r from-purple-600/10 to-transparent"></div>
+          <div className="absolute top-5 -left-48 w-full h-16 transform rotate-12 bg-gradient-to-r from-blue-700/15 to-transparent"></div>
+          <div className="absolute top-10 -left-56 w-full h-12 transform rotate-12 bg-gradient-to-r from-teal-500/10 to-transparent"></div>
+        </div>
       </motion.div>
 
       {/* Main wrapper */}
       <div className="w-full flex justify-end h-screen pt-12">
         {/* Content container with animations */}
         <motion.div 
-          className="relative z-10 w-[95%] flex "
+          className="relative z-10 w-[95%] flex flex-col lg:flex-row"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
           variants={container}
         >
-          {/* Left: Text */}
+          {/* Left: Text - now takes full width on mobile */}
           <div className="flex-1 flex flex-col justify-center pb-10 pl-5 pt-2 space-y-4">
             <motion.p variants={item} className="text-sm text-blue-600 font-semibold">
               Lorem ipsum dolor sit amet
@@ -132,10 +132,10 @@ export default function Section2() {
             </motion.div>
           </div>
 
-          {/* Right: Image */}
+          {/* Right: Image - Hidden on mobile, shown on lg screens */}
           <motion.div 
             variants={imageAnim}
-            className="flex-1 flex justify-end items-center"
+            className="flex-1 hidden lg:flex justify-end items-center"
           >
             <div className="relative w-[80%] h-[80%]">
               <Image
@@ -149,7 +149,7 @@ export default function Section2() {
           </motion.div>
 
           {/* Gradient Line (Animated) */}
-         <div className="absolute bottom-0 left-0 w-full">
+          <div className="absolute bottom-0 left-0 w-full">
             <div className="w-full h-5 bg-gradient-to-r from-[#043898] via-[#079902] to-[#170041] via-60%"></div>
           </div>
         </motion.div>

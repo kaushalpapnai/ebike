@@ -35,12 +35,12 @@ const Section5 = () => {
   return (
     <section className="w-full min-h-screen relative py-12 px-4 md:px-8 overflow-hidden">
       {/* Background SVG as absolute positioned Image */}
-      <div className="absolute w-full -top-64 h-[200%] left-0 ">
+      <div className="absolute w-full -top-36 h-[130%] left-0">
         <Image
           src={bgGraphic}
           alt="Background Graphic"
           fill
-          className="object-cover object-top-left"
+          className="object-cover"
           priority
         />
       </div>

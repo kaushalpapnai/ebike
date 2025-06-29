@@ -30,7 +30,7 @@ const imageAnim = {
 
 const Section1 = () => {
   return (
-    <section className="relative w-full bg-white overflow-hidden">
+    <section className="relative w-full bg-white overflow-hidden mt-12">
       {/* Pattern + gradient bottom background */}
 
       {/* Main Content */}
