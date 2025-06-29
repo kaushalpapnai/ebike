@@ -27,7 +27,7 @@ const Navbar = () => {
       }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
     >
       {/* Left: Logo */}
       <motion.div
@@ -89,7 +89,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
+            transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
             className={`absolute top-full left-0 w-full rounded-b-lg overflow-hidden md:hidden z-40 mt-2 ${
               isScrolled 
                 ? "bg-white/95 backdrop-blur-md shadow-lg border border-gray-200/50" 
