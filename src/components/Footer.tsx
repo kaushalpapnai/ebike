@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Logo Section */}
-          <motion.div variants={item} className="lg:col-span-1">
+          <motion.div variants={item as any} className="lg:col-span-1">
             <div className="bg-gray-200 px-6 py-3 inline-block">
               <span className="text-xl font-bold text-black tracking-wider">
                 LOGO
@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
 
           {/* Footer Links Columns */}
           {footerLinks.map((section, index) => (
-            <motion.div key={index} variants={item} className="space-y-4">
+            <motion.div key={index} variants={item as any} className="space-y-4">
               <h3 className="text-lg font-semibold text-white mb-6">
                 {section.title}
               </h3>
