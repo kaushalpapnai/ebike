@@ -1,6 +1,13 @@
-"use client"
-import React, { useState, useRef } from "react";
-import { ChevronLeft, ChevronRight, Star, Info, Castle, Hexagon } from "lucide-react";
+"use client";
+import React, { useState, useRef, useEffect } from "react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  Star,
+  Info,
+  Castle,
+  Hexagon,
+} from "lucide-react";
 
 const testimonials = [
   {
@@ -43,38 +50,38 @@ const testimonials = [
 
 const Section10 = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const scrollContainerRef = useRef(null);
+  const scrollContainerRef = useRef<HTMLDivElement | null>(null);
 
-  // Get number of visible cards based on screen size
   const getVisibleCards = () => {
-    if (typeof window !== 'undefined') {
-      if (window.innerWidth >= 1024) return 4; // lg: 4 cards
-      if (window.innerWidth >= 768) return 2;  // md: 2 cards
-      return 1; // sm: 1 card
+    if (typeof window !== "undefined") {
+      if (window.innerWidth >= 1024) return 4;
+      if (window.innerWidth >= 768) return 2;
+      return 1;
     }
     return 4;
   };
 
   const [visibleCards, setVisibleCards] = useState(getVisibleCards);
 
-  // Update visible cards on window resize
-  React.useEffect(() => {
+  useEffect(() => {
     const handleResize = () => setVisibleCards(getVisibleCards());
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const maxIndex = Math.max(0, testimonials.length - visibleCards);
 
-  const scrollToIndex = (index) => {
-    if (scrollContainerRef.current) {
-      const cardWidth = scrollContainerRef.current.children[0]?.offsetWidth || 0;
-      const gap = 24; // 1.5rem gap
+  const scrollToIndex = (index: number) => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      const card = container.children[0] as HTMLElement | undefined;
+      const cardWidth = card?.offsetWidth || 0;
+      const gap = 24;
       const scrollPosition = index * (cardWidth + gap);
-      
-      scrollContainerRef.current.scrollTo({
+
+      container.scrollTo({
         left: scrollPosition,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     }
     setCurrentIndex(index);
@@ -98,7 +105,6 @@ const Section10 = () => {
           Dui euismod iaculis libero, aliquet vitae et elementum porttitor.
         </p>
 
-        {/* Carousel Container */}
         <div className="relative mt-12">
           {/* Navigation Buttons */}
           <button
@@ -118,11 +124,8 @@ const Section10 = () => {
           </button>
 
           {/* Cards Container */}
-          <div 
-            ref={scrollContainerRef}
-            className="overflow-hidden mx-14"
-          >
-            <div 
+          <div ref={scrollContainerRef} className="overflow-hidden mx-14">
+            <div
               className="flex gap-6 transition-transform duration-300 ease-in-out"
               style={{
                 transform: `translateX(-${currentIndex * (100 / visibleCards + 6)}%)`,
@@ -134,16 +137,11 @@ const Section10 = () => {
                   className="flex-shrink-0 bg-white rounded-xl shadow-lg p-6 text-left space-y-4"
                   style={{
                     width: `calc(${100 / visibleCards}% - ${(visibleCards - 1) * 24 / visibleCards}px)`,
-                    minWidth: '280px'
+                    minWidth: "280px",
                   }}
                 >
-                  {/* Icon */}
                   <div>{item.icon}</div>
-
-                  {/* Text */}
                   <p className="text-gray-700 text-sm leading-relaxed">{item.text}</p>
-
-                  {/* Avatar + Name */}
                   <div className="flex items-center gap-3 pt-2">
                     <div className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-sm font-semibold text-gray-800">
                       {item.initial}
@@ -162,7 +160,7 @@ const Section10 = () => {
                 key={index}
                 onClick={() => scrollToIndex(index)}
                 className={`w-2 h-2 rounded-full transition-all duration-200 ${
-                  index === currentIndex ? 'bg-white' : 'bg-white/40'
+                  index === currentIndex ? "bg-white" : "bg-white/40"
                 }`}
               />
             ))}
